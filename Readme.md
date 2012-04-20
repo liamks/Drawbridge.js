@@ -10,7 +10,7 @@ The goal of Drawbridge is to create a password authentication module that requir
 
 **The Bad** Drawbridge still needs a lot of work, and should be considered an alpha product.
 
-**The Ugly** I need your help to make it better! Unit Tests and Integration Tests have not been added yet. I wanted to gage interests in Drawbridge and its features before I tested its components. Furthermore, lots of the code needs refactoring and better organization (fun!).
+**The Ugly** I need your help to make it better! Unit Tests and Integration Tests have not been added yet. I wanted to gage interests in Drawbridge and its features before I tested its components (poor excuse, I know). Furthermore, lots of the code needs refactoring and better organization (fun!).
 
 ## The Basics
 
@@ -75,14 +75,14 @@ Drawbridge provides all the basic password authentication services and views. It
 1.  login view and routes
 2.  logout view and route
 3.  password reset view and routes
-4.  password reset email templates, with link for reseting password
+4.  password reset email templates, with link for resetting password
 5.  registration view and routes, with email confirmation template
-6.  functions for adding athentication to a given route
+6.  functions for adding authentication to a given route
 7.  An optional Terms of Service that will be shown to the potential user at registration
 
 ### Waiting lists
 
-Many new applications start with a sign-up form that put potentional users on a waiting list. Drawbridge.js provdies the code for both the sign-up form and the functionality to store the sign-up data, and notify the potential user, via email, that the sign-up was succesful. To add the sign-up form to your site see the "View Partial" section below.
+Many new applications start with a sign-up form that put potential users on a waiting list. Drawbridge.js provides the code for both the sign-up form and the functionality to store the sign-up data, and notify the potential user, via email, that the sign-up was successful. To add the sign-up form to your site see the "View Partial" section below.
 
 ### Invitations
 
@@ -116,15 +116,15 @@ Drawbridge.js can currently send emails using postmark or nodemailer. To use eit
   },
 ```
 
-## drawbrdige.config.json
+## drawbridge.config.json
 
-The drawbridge.config.json files defines all of the basic settings an configuration for drawbridge. It defines all of the subjects and from's for each email type that drawbridge sends. It defines the email and database modules that it uses ( right now the only databse is Redis ). It also defines a super user account that is created when drawbridge is instantiated.
+The drawbridge.config.json files defines all of the basic settings an configuration for drawbridge. It defines all of the "subject" and "from" values for each email type that drawbridge sends. It defines the email and database modules that it uses ( right now the only database is Redis ). It also defines a super user account that is created when drawbridge is instantiated.
 
-The drawbridg.config.json file also has a flag for whether your app will include a waitlist ("waitlist" : true - within the "signups" sub object). If the waitlist flag is true only those invited will be able to register.
+The drawbridge.config.json file also has a flag for whether your app will include a waitlist ("waitlist" : true - within the "signups" sub object). If the waitlist flag is true only those invited will be able to register.
 
 ## View Partial
 
-Drawbridge.js includes a view partial for accepting sign-ups, for your apps waiting list. The partial also includes some javascript to submit the form's contents asynchronously to your app. When the submission is complete the form dissapears.
+Drawbridge.js includes a view partial for accepting signups, for your apps waiting list. The partial also includes some javascript to submit the form's contents asynchronously to your app. When the submission is complete the form disapears.
 
 ```
 != partial('drawbridge/signup/signup.jade',{})
@@ -244,7 +244,7 @@ app.get('/numUsers.json', function( req, res ){
 
 ### .getWaitlist( function( error, users ) )
 
-+   *function* is a callback function that takes two parameters, an arror, and an array with results.
++   *function* is a callback function that takes two parameters, an error, and an array with results.
 
 `.getWaitlist()` takes a callback function and returns an array of objects, each object representing a person on the waiting list.
 
