@@ -1,0 +1,21 @@
+h1 Sign ups / Waitlist
+
+
+form(action='/admin/invite-signup', method='post')
+
+  input.btn.btn-primary(type='submit', value="Invite")
+  table.table.table-bordered.table-striped
+    thead
+      tr
+        th
+        th Email
+        th Sign up Time
+        th Request URL
+    tbody
+      each signup in signups
+        tr
+          td
+            input(type="checkbox", name='person', value=signup.email)
+          td= signup.email
+          td= new Date(signup.wl_time)
+          td= signup.wl_requestURL

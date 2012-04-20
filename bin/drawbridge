@@ -1,0 +1,139 @@
+#!/usr/bin/env node
+
+var fs = require('fs') ,
+    os = require('os') ,
+    program = require('commander') ,
+    path    = require('path') ,
+    mkdirp  = require('mkdirp');
+
+program
+  .version('0.0.1')
+  .option('build', 'Generate drawbridge views, config and ToS')
+  .parse(process.argv)
+
+
+var projectPath = program.args.shift() || '.' , 
+    root  = path.normalize(__dirname + '/..') ,
+    views = root + '/lib/views/' ,
+    read  = fs.readFileSync;
+
+
+var writeViews = function(path){
+
+  /* bootstrap css */
+  var bootstrapCSS = read( root + '/lib/css/bootstrap.min.css', 'utf8' ),
+      drawbridgeCSS = read( root + '/lib/css/drawbridge.css', 'utf8' );
+
+  /* signup public JS */
+  var signUpJS = read( root + '/lib/javascripts/signup.js', 'utf8' );
+
+  /* Config */
+  var configJSON = read( root + '/lib/config/drawbridge.config.json', 'utf8' );
+
+  /* Errors */
+  var errorLayoutJADE = read(views + '/errors/layout.jade', 'utf8' ),
+      errorIndexJADE = read( views + '/errors/index.jade', 'utf8' );
+
+  /* Signup */
+  var layoutJADE = read(views + '/signup/layout.jade', 'utf8' ),
+      signupsJADE = read( views + '/signup/signups.jade', 'utf8' ),
+      signupJADE  = read( views + '/signup/_signup.jade', 'utf8' ),
+      invitesJADE = read( views + '/signup/invites.jade', 'utf8' );
+
+  /*  Dashboard */
+  var dashboardJADE = read( views + '/dashboard/dashboard.jade', 'utf8' ),
+      usersJADE = read( views + '/dashboard/users.jade', 'utf8' );
+
+  /* Authentication */
+  var authJADE = read( views + '/authentication/registration.jade', 'utf8' ),
+      authLayoutJADE = read( views + '/authentication/layout.jade', 'utf8' ),
+      confirmJADE = read( views + '/authentication/confirmationSent.jade', 'utf8' ),
+      loginJADE = read( views + '/authentication/login.jade', 'utf8' ),
+      forgotJADE = read( views + '/authentication/forgotPassword.jade', 'utf8' ),
+      resetSentJADE = read( views + '/authentication/resetSent.jade', 'utf8' ),
+      resetJADE = read( views + '/authentication/resetPassword.jade', 'utf8');
+
+  /* Email */
+  var signupEmailJADE = read( views + '/email/signup.jade', 'utf8' ), 
+      inviteEmailJADE = read( views + '/email/invite.jade', 'utf8' ),
+      confirmEmailJADE = read( views + '/email/confirm.jade', 'utf8' ),
+      resetEmailJADE = read( views + '/email/reset.jade', 'utf8' );
+
+  var termsOfServiceTXT = read( root + '/termsOfService.txt', 'utf8')
+
+  
+  mkdir(path, function(){
+
+    write( path + '/drawbridge.config.json', configJSON );
+    write( path + '/termsOfService.txt', termsOfServiceTXT );
+
+    mkdir(path + '/views');
+    mkdir(path + '/views/drawbridge');
+    mkdir(path + '/views/drawbridge/signup', function(){
+      write(path + '/views/drawbridge/signup/layout.jade', layoutJADE );
+      write(path + '/views/drawbridge/signup/signups.jade', signupsJADE );
+      write(path + '/views/drawbridge/signup/_signup.jade', signupJADE );
+      write(path + '/views/drawbridge/signup/invites.jade', invitesJADE )
+    });
+
+    mkdir(path + '/views/drawbridge/email', function(){ 
+      write(path + '/views/drawbridge/email/signup.jade', signupEmailJADE );
+      write(path + '/views/drawbridge/email/invite.jade', inviteEmailJADE );
+      write(path + '/views/drawbridge/email/confirm.jade', confirmEmailJADE );
+      write(path + '/views/drawbridge/email/reset.jade', resetEmailJADE );
+    });
+
+    mkdir(path + '/views/drawbridge/error', function(){
+      write(path + '/views/drawbridge/error/layout.jade', errorLayoutJADE );
+      write(path + '/views/drawbridge/error/index.jade', errorIndexJADE );
+    });
+
+    mkdir(path + '/views/drawbridge/dashboard', function(){
+      write(path + '/views/drawbridge/dashboard/dashboard.jade', dashboardJADE );
+      write(path + '/views/drawbridge/dashboard/layout.jade', layoutJADE );
+      write(path + '/views/drawbridge/dashboard/users.jade', usersJADE );
+    });
+
+    mkdir(path + '/views/drawbridge/authentication', function(){
+      write(path + '/views/drawbridge/authentication/layout.jade', authLayoutJADE );
+      write(path + '/views/drawbridge/authentication/registration.jade', authJADE );
+      write(path + '/views/drawbridge/authentication/confirmationSent.jade', confirmJADE );
+      write(path + '/views/drawbridge/authentication/login.jade', loginJADE );
+      write(path + '/views/drawbridge/authentication/forgotPassword.jade', forgotJADE );
+      write(path + '/views/drawbridge/authentication/resetSent.jade', resetSentJADE );
+      write(path + '/views/drawbridge/authentication/resetPassword.jade', resetJADE );
+    });
+
+    mkdir(path + '/public');
+    mkdir(path + '/public/stylesheets');
+    mkdir(path + '/public/stylesheets/drawbridge', function(){
+      write(path + '/public/stylesheets/drawbridge/bootstrap.min.css', bootstrapCSS );
+      write(path + '/public/stylesheets/drawbridge/drawbridge.css', drawbridgeCSS );
+    });
+
+    mkdir(path + '/public/javascripts');
+    mkdir(path + '/public/javascripts/drawbridge', function(){
+      write(path + '/public/javascripts/drawbridge/signup.js', signUpJS );
+    })
+
+  })
+
+}
+
+
+var write = function(path, str){
+  fs.writeFile(path, str);
+  console.log('   \x1b[36mcreate\x1b[0m : ' + path);
+}
+
+function mkdir(path, fn) {
+  mkdirp(path, 0755, function(err){
+    if (err) throw err;
+    console.log('   \033[36mcreate\033[0m : ' + path);
+    fn && fn();
+  });
+}
+
+if( program.build ){
+  writeViews( projectPath )
+};

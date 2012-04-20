@@ -1,0 +1,43 @@
+div.center
+  h1 Registration
+
+  form(action='/register', method="POST")
+    input(type="hidden", name="token", value=token)
+
+    -if(errors.length > 0)
+      ul#errors
+        for error in errors
+          li= error
+
+    -if (inviteToken)
+      input(type='hidden', name="inviteToken", value=inviteToken)
+
+    -if (useScreenName)
+      div
+        label(for="screenName") Screen Name
+        input.span4(type="text", name="screenName", value=screenName)
+
+    div
+      label(for="email") Email
+      input.span4(type="text", name="email", value=email)
+
+    div
+      label(for='password') Password
+      input.span4(type="password", name="password", value=password)
+
+      label(for='confirmPassword') Confirm Password
+      input.span4(type="password", name="confirmPassword", value=confirmPassword)
+
+
+    if (termsOfService)
+      h4 Terms of Service
+      div#tos
+        textarea.span4(rows=10)=termsOfService
+        label.checkbox
+          input(type="checkbox", name="tos") 
+          i I have read and understood the Terms of Service
+
+    div.well
+      input.btn.btn-primary(type="submit", value="Register")
+
+

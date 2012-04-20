@@ -1,0 +1,50 @@
+body{
+  padding-top: 60px;
+}
+
+div.center{
+  text-align: center;
+}
+
+div.center form{
+  text-align: left;
+  margin: 10px auto;
+  width: 300px;
+}
+
+div.center form ul{
+  border: 1px solid red;
+  padding: 5px 25px;
+  margin: 10px 0;
+  font-size: 110%;
+  font-weight: bold;
+}
+
+div.center #confirmation{
+  text-align: left;
+  margin: 10px auto;
+  width: 300px;
+  padding: 10px;
+  
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+div.center #confirmation p{
+  font-size: 110%;
+  line-height: 22px;
+}
+
+div.well{
+  margin-top: 20px;
+}
+
+label#staySignedIn{
+  display: inline-block;
+  margin-left: 20px;
+}
+
+label#staySignedIn input{
+  display: inline;
+  margin: -3px 7px 0 0;
+}

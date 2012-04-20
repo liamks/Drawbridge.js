@@ -1,0 +1,19 @@
+h1 Users
+
+table.table.table-bordered.table-striped
+  thead
+    tr
+      th Email
+      th Screen Name
+      th Member Since
+      th Last Login
+      th Last Login IP
+
+  tbody
+    for user in users
+      tr
+        td= user.email
+        td= user.screenName
+        td= user.createdAt
+        td= user.lastLogin
+        td= user.lastLoginIP
