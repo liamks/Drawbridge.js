@@ -2,15 +2,15 @@
 
 ## About Drawbridge
 
-Drawbridge.js is a Node.js module for adding authentication, waiting lists and account invitations to an express.js application. Drawbridge stores all its data in a _Redis_ database obviating migrations or slow queries. Drawbridge.js includes an admin panel to view those on the waiting list, sent invitations and app users.
+Drawbridge.js is a Node.js module for adding authentication, waiting lists and account invitations to an Express.js application. Drawbridge stores all its data in a **Redis** database obviating migrations or slow queries. Drawbridge.js includes an admin panel to view those on the waiting list, sent invitations and app users.
 
 The goal of Drawbridge is to create a password authentication module that requires as few lines of code to add authentication to your app. While drawbridge creates a views and email templates you are free to change their content - only the names of the templates and views need to stay the same.
 
-*The Good* Drawbridge makes it extremely easy to add authentication to your express.js app. Drawbridge uses bcrypt to hash bash passwords and Redis to store its data. 
+**The Good** Drawbridge makes it extremely easy to add authentication to your express.js app. Drawbridge uses bcrypt to hash bash passwords and Redis to store its data. 
 
-*The Bad* Drawbridge still needs a lot of work, and should be considered an alpha product.
+**The Bad** Drawbridge still needs a lot of work, and should be considered an alpha product.
 
-*The Ugly* I need your help to make it better! Unit Tests and Integration Tests have not been added yet. I wanted to gage interests in Drawbridge and its features before I tested its components. Furthermore, lots of the code needs refactoring and better organization (fun!).
+**The Ugly** I need your help to make it better! Unit Tests and Integration Tests have not been added yet. I wanted to gage interests in Drawbridge and its features before I tested its components. Furthermore, lots of the code needs refactoring and better organization (fun!).
 
 ## The Basics
 
@@ -28,7 +28,7 @@ In the root of your application's directory, from the terminal:
 drawbridge build
 ```
 
-The `drawbridge build` will create a number of views, email templates, a Terms of Service text file, and a configuration file (drawbridge.config.json). It is important that you modify the values on the configuration file before you get started - if you do not, emails will not be sent. See the drawbridge.config.json section below for more details.
+The `drawbridge build` shell command will create a number of views, email templates, a Terms of Service text file, and a configuration file (drawbridge.config.json). It is important that you modify the values on the configuration file before you get started - if you do not, emails will not be sent. See the drawbridge.config.json section below for more details.
 
 ```javascript
 var express = require('express')
@@ -92,7 +92,7 @@ The app's admin can then use Drawbridge.js's admin view to manually invite each 
 
 Drawbridge.js can currently send emails using postmark or nodemailer. To use either service the drawbridge.config.json must be modified. Adding adapters for other emailing methods should be extremely easy, see `lib/email.js` and the files within `lib/email`.
 
-*To use nodemailer:*
+**To use nodemailer:**
 
 ```javascript
   "email" : {
@@ -105,8 +105,9 @@ Drawbridge.js can currently send emails using postmark or nodemailer. To use eit
   },
 ```
 
-*To use postmark:*
-*IMPORTANT:* To use postmark the "from" email addresses in the drawbridge.config.json file have to be registered as "Sender Signatures" within your Postmark.com account.
+**To use postmark:**
+
+**IMPORTANT:** To use postmark the "from" email addresses in the drawbridge.config.json file have to be registered as "Sender Signatures" within your Postmark.com account.
 
 ```javascript
   "email" : {
