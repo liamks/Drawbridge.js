@@ -22,13 +22,13 @@ npm install drawbridge.js -g
 
 ### To Use
 
-In the root of your application's directory, from the terminal:
+In the root of your express application's directory, from the terminal:
 
 ```bash
 drawbridge build
 ```
 
-The `drawbridge build` shell command will create a number of views, email templates, a Terms of Service text file, and a configuration file (drawbridge.config.json). It is important that you modify the values on the configuration file before you get started - if you do not, emails will not be sent. See the drawbridge.config.json section below for more details.
+The `drawbridge build` shell command will create a number of views, email templates, a Terms of Service text file, and a configuration file (drawbridge.config.json). It is important that you modify the values on the configuration file before you get started - if you do not, emails will not be sent. See the drawbridge.config.json section below for more details. Also note that the express app was created using the `--sessions` switch, to add support for sessions.
 
 ```javascript
 var express = require('express')
