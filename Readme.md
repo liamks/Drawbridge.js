@@ -1,5 +1,7 @@
 # Drawbridge.js
 
+[Rational and Screencast for Drawbridge.js](http://liamkaufman.comblog/2012/04/21/adding-authentication-waiting-lists-and-sign-ups-to-and-express-app-using-drawbridge-and-redis/)
+
 ## About Drawbridge
 
 Drawbridge.js is a Node.js module for adding authentication, waiting lists and account invitations to an Express.js application. Drawbridge stores all its data in a **Redis** database obviating migrations or slow queries. Drawbridge.js includes an admin panel to view those on the waiting list, sent invitations and app users.
