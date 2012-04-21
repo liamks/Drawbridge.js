@@ -1,6 +1,6 @@
 # Drawbridge.js
 
-[Rational and Screencast for Drawbridge.js](http://liamkaufman.comblog/2012/04/21/adding-authentication-waiting-lists-and-sign-ups-to-and-express-app-using-drawbridge-and-redis/)
+[Rational and Screencast for Drawbridge.js](http://liamkaufman.com/blog/2012/04/21/adding-authentication-waiting-lists-and-sign-ups-to-and-express-app-using-drawbridge-and-redis/)
 
 ## About Drawbridge
 
