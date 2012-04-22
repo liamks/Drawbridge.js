@@ -1,3 +1,5 @@
+process.env.NODE_ENV = 'test';
+
 var app = require('./app/app'),
     mocha = require('mocha'),
     should = require('should'),
@@ -31,7 +33,7 @@ describe('App', function(){
 
     describe('Sign up form', function(){
       it('Should save the user\'s email', function(done){
-        request.post( '/signup', signup1, function( error, response, body ){
+        request.post( '/signup', signup1, true, function( error, response, body ){
           
           redis.multi()
             .exists(signup1.email)
@@ -46,7 +48,7 @@ describe('App', function(){
       });
 
       it("Should return an error because email is blank", function(done){
-        request.post('/signup', { email : '' }, function( error, res, body ){
+        request.post('/signup', { email : '' }, true, function( error, res, body ){
           body.should.equal("invalid email address")
           res.statusCode.should.equal( 500 )
           done();
@@ -54,7 +56,7 @@ describe('App', function(){
       });
 
       it("Should return an error because email is invalid", function(done){
-        request.post('/signup', signupInvalid, function( err, res, body){
+        request.post('/signup', signupInvalid, true, function( err, res, body){
           body.should.equal("invalid email address")
           res.statusCode.should.equal( 500 )
 
@@ -71,6 +73,7 @@ describe('App', function(){
       });
 
       after(function(){
+        redis.hincrby("stats", "numWaitlist", -1)
         redis.del(signup1.email);
         redis.zrem('waitlist', signup1.email );
       })
