@@ -1,0 +1,48 @@
+{
+  "superUser" : {
+    "email" : "admin@test.com",
+    "password" : "admin"
+  },
+
+  "authentication" : {
+    "enableScreenName" : true,
+    "termsOfService" : "termsOfService.txt",
+
+    "confirmationEmail" : {
+      "from" : "confirm@test.com",
+      "subject" : "Confirm new account!"
+    },
+
+    "forgotPassword" : {
+      "from" : "forgot@test.com",
+      "subject" : "Password Reset"
+    }
+  },
+
+  "db" : {
+    "type" : "redis"
+  },
+
+  "email" : {
+    "module" : "nodemailer",
+    "service" : "Gmail",
+    "auth" : {
+      "user" : "me@gmail.com",
+      "pass" : "password"
+    }
+  },
+
+  "signups" : {
+    "waitlist" : true,
+
+    "signUpEmail" : {
+      "from": "signup@test.com",
+      "subject" : "Signup!"
+    },
+
+    "inviteEmail" : {
+      "from" :  "accepted@test.com",
+      "subject" : "Invited"
+    }
+  }
+}

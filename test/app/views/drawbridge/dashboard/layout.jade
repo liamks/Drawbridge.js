@@ -1,0 +1,24 @@
+!!! 5
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/drawbridge/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/drawbridge/drawbridge.css')
+  
+  body
+    div.navbar.navbar-fixed-top
+      div.navbar-inner
+        div.container
+          a.brand(href="/admin/") Drawbridge
+
+          ul.nav
+            li
+              a(href="/admin/signups") Waitlist
+            li
+              a(href="/admin/invites") Invited
+            li
+              a(href="/admin/users") Users
+
+    div.container
+
+      != body

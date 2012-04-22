@@ -1,0 +1,14 @@
+h1 Invites
+
+table.table.table-bordered.table-striped
+  thead
+    tr
+      th Email
+      th Sent At
+      th Token
+  tbody
+    each invite in invites
+      tr
+        td= invite.email
+        td= invite.inv_time
+        td= invite.inv_token

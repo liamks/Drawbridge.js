@@ -1,0 +1,15 @@
+h1 Dashboard
+
+table.table.table-bordered.table-striped
+  thead
+    tr
+      th On Waiting List
+      th Invited
+      th Registered, But not Confirmed
+      th Users
+  tbody
+    tr
+      td= vals.numWaitlist || 0
+      td= vals.numInivited || 0
+      td= vals.numUnConfirmed || 0
+      td= vals.numUsers || 0
