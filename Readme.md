@@ -12,7 +12,7 @@ The goal of Drawbridge is to create a password authentication module that requir
 
 **The Bad** Drawbridge still needs a lot of work, and should be considered an alpha product.
 
-**The Ugly** I need your help to make it better! Unit Tests and Integration Tests have not been added yet. I wanted to gage interests in Drawbridge and its features before I tested its components (poor excuse, I know). Furthermore, lots of the code needs refactoring and better organization (fun!).
+**The Ugly** I need your help to make it better! I wanted to gage interests in Drawbridge and its features before I thoroughly tested its components. Furthermore, lots of the code needs refactoring and better organization.
 
 ## The Basics
 
