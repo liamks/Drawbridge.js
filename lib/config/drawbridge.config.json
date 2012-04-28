@@ -6,6 +6,13 @@
 
   "authentication" : {
     "enableScreenName" : true,
+    
+    "restrictedScreenNames" : [ 
+      "login", "logout", "signin", "blog", "legal",
+      "faq", "people", "hiring", "new", "contact", 
+      "about"
+    ],
+
     "termsOfService" : "termsOfService.txt",
 
     "confirmationEmail" : {

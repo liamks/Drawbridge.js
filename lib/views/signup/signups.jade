@@ -4,6 +4,11 @@ h1 Sign ups / Waitlist
 form(action='/admin/invite-signup', method='post')
 
   input.btn.btn-primary(type='submit', value="Invite")
+
+  div
+    label(for='anEmail') Manually Invite:
+    input(type='text', name='anEmail')
+
   table.table.table-bordered.table-striped
     thead
       tr
