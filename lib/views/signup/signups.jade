@@ -2,7 +2,7 @@ h1 Sign ups / Waitlist
 
 
 form(action='/admin/invite-signup', method='post')
-
+  input(type='hidden', name='token', value=token)
   input.btn.btn-primary(type='submit', value="Invite")
 
   div

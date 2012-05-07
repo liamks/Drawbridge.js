@@ -2,7 +2,7 @@
   "author": "Liam Kaufman <liam.kaufman@gmail.com> (liamkaufman.com)",
   "name": "drawbridge",
   "description": "User authentication, waiting lists, and invitations for express",
-  "version": "0.1.07",
+  "version": "0.2.00",
   "repository": {
     "type":"git",
     "url": "git@github.com:liamks/Drawbridge.js.git"

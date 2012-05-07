@@ -4,9 +4,9 @@ var app = require('./app/app'),
     mocha = require('mocha'),
     should = require('should'),
     req = require('./support/http'),
-    redis = require('redis').createClient()
+    redis = require('redis').createClient(),
     port = 3001;
-
+ 
 var superUser = require('./app/drawbridge.config').superUser;
 
 describe("Dashboard", function(){
@@ -44,7 +44,6 @@ describe("Dashboard", function(){
         done();
       });
     });
-
 
   });
 
