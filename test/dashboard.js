@@ -12,13 +12,18 @@ var superUser = require('./app/drawbridge.config').superUser;
 describe("Dashboard", function(){
   var request = req( "http://0.0.0.0:" + String(port) );
 
-  before(function(){
+  before(function(done){
     app.listen(port);
+
+    setTimeout( function(){done()}, 40 );
   });
 
   describe("Not logged in ", function(){
     it("GET /admin/ - Should redirect to sign in page", function(done){
       request.getWithjQuery("/admin/", function( error, window, $){
+        if(error){
+          console.log("ERROR:\n" + error );
+        }
         $('h1').text().should.equal("Sign in");
         done();
       });
@@ -26,6 +31,9 @@ describe("Dashboard", function(){
 
     it("GET /admin/signups - Should redirect to sign in page", function(done){
       request.getWithjQuery("/admin/signups", function( error, window, $){
+        if(error){
+          console.log("ERROR:\n" + error );
+        }
         $('h1').text().should.equal("Sign in");
         done();
       });
@@ -33,6 +41,9 @@ describe("Dashboard", function(){
 
     it("GET /admin/invites - Should redirect to sign in page", function(done){
       request.getWithjQuery("/admin/invites", function( error, window, $){
+        if(error){
+          console.log("ERROR:\n" + error );
+        }
         $('h1').text().should.equal("Sign in");
         done();
       });
@@ -40,6 +51,9 @@ describe("Dashboard", function(){
 
     it("GET /admin/users - Should redirect to sign in page", function(done){
       request.getWithjQuery("/admin/users", function( error, window, $){
+        if(error){
+          console.log("ERROR:\n" + error );
+        }
         $('h1').text().should.equal("Sign in");
         done();
       });
