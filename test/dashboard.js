@@ -23,6 +23,7 @@ describe("Dashboard", function(){
       request.getWithjQuery("/admin/", function( error, window, $){
         if(error){
           console.log("ERROR:\n" + error );
+          
         }
         $('h1').text().should.equal("Sign in");
         done();
