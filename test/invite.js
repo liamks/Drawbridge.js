@@ -169,7 +169,10 @@ describe("Invite", function(){
 
 
   after(function(){
-    app.close();
+    request.get( '/logout ', function(){
+      app.close();
+    });
+    
   });
 
 });
