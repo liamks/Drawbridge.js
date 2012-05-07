@@ -19,12 +19,6 @@ describe("Dashboard", function(){
   describe("Not logged in ", function(){
     it("GET /admin/ - Should redirect to sign in page", function(done){
       request.getWithjQuery("/admin/", function( error, window, $){
-        if(window){
-          console.log("ERROR:\n" + error );
-          console.log(window.$)
-          console.log(window)
-
-        }
         $('h1').text().should.equal("Sign in");
         done();
       });
@@ -35,7 +29,7 @@ describe("Dashboard", function(){
         if(error){
           console.log("ERROR:\n" + error );
         }
-        window.$('h1').text().should.equal("Sign in");
+        $('h1').text().should.equal("Sign in");
         done();
       });
     });
@@ -45,16 +39,13 @@ describe("Dashboard", function(){
         if(error){
           console.log("ERROR:\n" + error );
         }
-        window.$('h1').text().should.equal("Sign in");
+        $('h1').text().should.equal("Sign in");
         done();
       });
     });
 
     it("GET /admin/users - Should redirect to sign in page", function(done){
       request.getWithjQuery("/admin/users", function( error, window, $){
-        if(error){
-          console.log("ERROR:\n" + error );
-        }
         $('h1').text().should.equal("Sign in");
         done();
       });
