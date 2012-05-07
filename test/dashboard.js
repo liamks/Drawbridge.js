@@ -12,18 +12,18 @@ var superUser = require('./app/drawbridge.config').superUser;
 describe("Dashboard", function(){
   var request = req( "http://0.0.0.0:" + String(port) );
 
-  before(function(done){
+  before(function(){
     app.listen(port);
-
-    setTimeout( function(){done()}, 40 );
   });
 
   describe("Not logged in ", function(){
     it("GET /admin/ - Should redirect to sign in page", function(done){
       request.getWithjQuery("/admin/", function( error, window, $){
-        if(error){
+        if(window){
           console.log("ERROR:\n" + error );
-          
+          console.log(window.$)
+          console.log(window)
+
         }
         $('h1').text().should.equal("Sign in");
         done();

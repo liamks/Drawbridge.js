@@ -11,7 +11,6 @@ module.exports = function( host ) {
 function Request( host){
   this.host = host;
   this.jquery = fs.readFileSync( './test/support/jquery.min.js', 'utf8' );
-  console.log( this.jquery );
 }
 
 Request.prototype.getWithjQuery = function( path, fn ){
