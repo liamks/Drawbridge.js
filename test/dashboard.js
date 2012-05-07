@@ -35,7 +35,7 @@ describe("Dashboard", function(){
         if(error){
           console.log("ERROR:\n" + error );
         }
-        $('h1').text().should.equal("Sign in");
+        window.$('h1').text().should.equal("Sign in");
         done();
       });
     });
@@ -45,7 +45,7 @@ describe("Dashboard", function(){
         if(error){
           console.log("ERROR:\n" + error );
         }
-        $('h1').text().should.equal("Sign in");
+        window.$('h1').text().should.equal("Sign in");
         done();
       });
     });
