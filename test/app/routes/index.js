@@ -9,5 +9,5 @@ exports.index = function(req, res){
 
 
 exports.secret = function(req, res){
-  res.send('secret!');
+  res.send('<h1>secret!</h1>');
 }

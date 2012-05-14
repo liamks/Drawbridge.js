@@ -1,7 +1,8 @@
 {
   "superUser" : {
     "email" : "admin@test.com",
-    "password" : "admin"
+    "password" : "admin",
+    "stage" : "4"
   },
 
   "authentication" : {

@@ -10,11 +10,10 @@ Drawbridge.js is a Node.js module for adding authentication, waiting lists and a
 
 The goal of Drawbridge is to create a password authentication module that requires as few lines of code to add authentication to your app. While drawbridge creates a views and email templates you are free to change their content - only the names of the templates and views need to stay the same.
 
-**The Good** Drawbridge makes it extremely easy to add authentication to your express.js app. Drawbridge uses bcrypt to hash passwords and Redis to store its data. 
+**The Good** Drawbridge makes it extremely easy to add authentication to your express.js app. Drawbridge uses bcrypt to hash passwords and Redis to persist user data. 
 
-**The Bad** Drawbridge still needs a lot of work, and should be considered an alpha product.
+**The Bad** Drawbridge still needs a lot more testing, and should be considered an alpha product.
 
-**The Ugly** The code needs to be better organized, commented, refactored and much more thoroughly tested.
 
 ## The Basics
 
